@@ -1,28 +1,25 @@
 # Proyecto: Plataforma de Gestión de Editorial y Librería
 
-Repositorio correspondiente al ejercicio práctico de algoritmos de ordenamiento, filtrado y transformación de diccionarios en Python. El sistema automatiza el cálculo de regalías y agrupa la data final para la interfaz web.
+Aquí alojamos nuestra solución de código para el ejercicio práctico de manipulación de datos en diccionarios de Python. Armamos un script que filtra datos, calcula ganancias y estructura todo al final para poder mostrarlo ordenado en una posible vista web.
 
 ## Descripción del Flujo de Ejecución
 
-El código en `gestion_libreria.py` se estructuró a través de tres fases lógicas, manteniendo consistencia y limpieza:
+En el archivo `gestion_libreria.py` dividimos nuestro trabajo en tres fases claras para mantener todo limpio:
 
-1. **Limpieza e Indexación (Parte A):** Iteración sobre el catálogo para descartar registros corruptos (sin ISBN) o inactivos (descatalogados). Genera un diccionario rápido agrupado por el ISBN.
-2. **Cálculo de Regalías (Parte B):** Análisis focalizado en los libros del mercado de "Ficción" y "Académico". El sistema procesa de forma segura los valores numéricos y proyecta las regalías (`ventas * precio * porcentaje`). Los resultados se ordenan de mayor a menor ingreso.
-3. **Agrupación para la Interfaz Web (Parte C):** Transforma la lista plana y reestructura el contenido indexándolo por el "género literario". Para evitar fallos semánticos (redundancia de llaves), se mutó la llave origen en el hijo y se inyectaron dinámicamente insignias tipo *Bestseller* dependiendo del histórico de ventas.
+1. **Limpieza y Preparación (Parte A):** Pasamos por todo el catálogo inicial y descartamos aquellos libros incompletos (que no tuvieran la clave ISBN) o los que dijeran "descatalogado". Con la data buena que nos quedó, creamos un diccionario principal usando el ISBN como llave para buscar más rápido.
+2. **Cálculo de Regalías (Parte B):** Filtramos solo las categorías que requiere el negocio ("Ficción" y "Académico"). Añadimos `try-except` para atrapar posibles errores de números vacíos o rotos en el archivo crudo y calculamos las regalías. Por último, ordenamos esa lista para dejar bien arriba a los que nos generen más plata.
+3. **Agrupación para la Interfaz (Parte C):** Acomodamos nuestro listado agrupándolo de vuelta según el "género literario". Para no hacer código redundante, le borramos/mutamos esa misma llave al diccionario interno del libro, y en base a sus ventas le metimos dinámicamente una insignia ("Bestseller" o "Regular").
 
 ## Ejecución Local
 
-1. Asegúrate de tener **Python 3.7+** instalado.
-2. Clona el repositorio.
-3. Posiciónate en la terminal dentro de la carpeta del proyecto.
-4. Ejecuta el archivo principal:
+1. **Python 3.7+ obligatorio**.
+2. Clonar el repo en alguna carpeta para abrirlo.
+3. Posiciónate en la terminal dentro de tu ruta del proyecto.
+4. Lanza el código principal:
    ```powershell
    python gestion_libreria.py
    ```
-5. Podrás ver en consola la salida formateada con `json.dumps()` y se autogenerará físicamente el archivo `vista_libreria.json`.
-
-## Manejo de Excepciones
-El script contempla la posibilidad de datos corruptos mediante sentencias seguras `try-except` para fallos nativos de `ValueError` y `TypeError`, dotando de invulnerabilidad a las ecuaciones clave del cálculo de ingresos.
+5. Verás en pantalla el JSON resultante formateado súper claro y además soltará un propio archivo llamado `vista_libreria.json` para testear el guardado de datos.
 
 --- 
-*Desarrollado para el análisis y evaluación de procesos internos algorítmicos.*
+*Evaluación - Lenguajes de Programación 2.*
