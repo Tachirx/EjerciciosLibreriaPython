@@ -1,0 +1,28 @@
+# Entornos virtuales
+venv/
+env/
+.venv/
+.env/
+
+# Archivos compilados de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Archivos de SO
+.DS_Store
+Thumbs.db
+
+# Configuración del IDE
+.vscode/
+.idea/
+
+# Archivos de caché
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Salidas de datos y temporales (Excepto el generado como prueba del ejercicio, si se quiere omitir, descomentar)
+# vista_libreria.json
+*.log

@@ -1,0 +1,59 @@
+import subprocess
+import time
+import csv
+from datetime import datetime
+import re
+
+# Archivo donde guardaremos el historial
+csv_file = "registro_internet.csv"
+target = "8.8.8.8" # DNS de Google
+
+# Creamos el archivo CSV con las cabeceras si no existe
+try:
+    with open(csv_file, mode='x', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(["Fecha_Hora", "Estado", "Ping_ms"])
+except FileExistsError:
+    pass # Si ya existe, simplemente agregaremos más datos
+
+print("Iniciando monitor de internet... (Presiona Ctrl+C en la consola para detener)")
+
+try:
+    while True:
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        
+        # Ocultar la ventana emergente de CMD en Windows
+        startupinfo = subprocess.STARTUPINFO()
+        startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW 
+        
+        # Ejecutamos ping en Windows (1 solo paquete)
+        result = subprocess.run(
+            ['ping', '-n', '1', '-w', '1000', target], 
+            stdout=subprocess.PIPE, 
+            stderr=subprocess.PIPE, 
+            text=True,
+            startupinfo=startupinfo
+        )
+        
+        # Buscamos el tiempo en milisegundos en el texto de respuesta
+        # Cubre español "tiempo=XXms" e inglés "time=XXms"
+        match = re.search(r'(tiempo|time)[=|<]([0-9]+)ms', result.stdout, re.IGNORECASE)
+        
+        if match:
+            ping_ms = int(match.group(2))
+            estado = "Online"
+            print(f"[{timestamp}] En línea - Ping: {ping_ms}ms")
+        else:
+            ping_ms = -1 # Usamos -1 para graficar las caídas
+            estado = "Offline"
+            print(f"[{timestamp}] ⚠️ CAÍDA DETECTADA")
+            
+        # Guardamos en el CSV al instante
+        with open(csv_file, mode='a', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow([timestamp, estado, ping_ms])
+            
+        time.sleep(2) # Esperar 2 segundos antes de volver a medir
+        
+except KeyboardInterrupt:
+    print("\nMonitor detenido. ¡Datos guardados en", csv_file, "!")

@@ -1,0 +1,114 @@
+{
+    "Programación": [
+        {
+            "isbn": "978-5",
+            "titulo": "Python para Todos",
+            "precio": 35.0,
+            "unidades_vendidas": 1200,
+            "stock": 100,
+            "apellido_autor": "Severance",
+            "porcentaje_autor": 0.2,
+            "estado_impresion": "activo",
+            "categoria": "Académico",
+            "regalia_proyectada": 8400.0,
+            "insignia_web": "Bestseller"
+        },
+        {
+            "isbn": "978-8",
+            "titulo": "Introducción a la IA",
+            "precio": 45.0,
+            "unidades_vendidas": 300,
+            "stock": 10,
+            "apellido_autor": "Russell",
+            "porcentaje_autor": 0.1,
+            "estado_impresion": "activo",
+            "categoria": "Académico",
+            "regalia_proyectada": 1350.0,
+            "insignia_web": "Regular"
+        }
+    ],
+    "Ficción": [
+        {
+            "isbn": "978-1",
+            "titulo": "Cien Años de Soledad",
+            "precio": 25.0,
+            "unidades_vendidas": 1500,
+            "stock": 40,
+            "apellido_autor": "García Márquez",
+            "porcentaje_autor": 0.15,
+            "estado_impresion": "activo",
+            "categoria": "Ficción",
+            "regalia_proyectada": 5625.0,
+            "insignia_web": "Bestseller"
+        },
+        {
+            "isbn": "978-4",
+            "titulo": "1984",
+            "precio": 18.0,
+            "unidades_vendidas": 2000,
+            "stock": 50,
+            "apellido_autor": "Orwell",
+            "porcentaje_autor": 0.12,
+            "estado_impresion": "activo",
+            "categoria": "Ficción",
+            "regalia_proyectada": 4320.0,
+            "insignia_web": "Bestseller"
+        },
+        {
+            "isbn": "978-7",
+            "titulo": "Crónica de una Muerte Anunciada",
+            "precio": 20.0,
+            "unidades_vendidas": 800,
+            "stock": 15,
+            "apellido_autor": "García Márquez",
+            "porcentaje_autor": 0.15,
+            "estado_impresion": "activo",
+            "categoria": "Ficción",
+            "regalia_proyectada": 2400.0,
+            "insignia_web": "Regular"
+        },
+        {
+            "isbn": "978-9",
+            "titulo": "Don Quijote",
+            "precio": 30.0,
+            "unidades_vendidas": 400,
+            "stock": 5,
+            "apellido_autor": "Cervantes",
+            "porcentaje_autor": 0.1,
+            "estado_impresion": "activo",
+            "categoria": "Ficción",
+            "regalia_proyectada": 1200.0,
+            "insignia_web": "Regular"
+        }
+    ],
+    "Matemáticas": [
+        {
+            "isbn": "978-2",
+            "titulo": "Cálculo de Una Variable",
+            "precio": 50.0,
+            "unidades_vendidas": 500,
+            "stock": 20,
+            "apellido_autor": "Stewart",
+            "porcentaje_autor": 0.1,
+            "estado_impresion": "activo",
+            "categoria": "Académico",
+            "regalia_proyectada": 2500.0,
+            "insignia_web": "Regular"
+        }
+    ],
+    "Medicina": [
+        {
+            "isbn": "978-10",
+            "titulo": "Anatomía Humana",
+            "precio": 70.0,
+            "unidades_vendidas": 100,
+            "stock": 8,
+            "apellido_autor": "Netter",
+            "porcentaje_autor": 0.15,
+            "estado_impresion": "activo",
+            "categoria": "Académico",
+            "regalia_proyectada": 1050.0,
+            "insignia_web": "Regular"
+        }
+    ]
+}
