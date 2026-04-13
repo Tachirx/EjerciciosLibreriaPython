@@ -23,3 +23,6 @@ En el archivo `gestion_libreria.py` dividimos nuestro trabajo en tres fases clar
 
 --- 
 *Evaluación - Lenguajes de Programación 2.*
+*05S-2603-D1*
+*Tachiro Rivas*
+*Iván Martínez*
